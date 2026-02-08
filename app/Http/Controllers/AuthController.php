@@ -31,7 +31,7 @@ class AuthController extends Controller
         $loginResult = $this->userService->loginUser($email, $password, $remember);
 
         if ($loginResult['status']) {
-            return redirect()->intended('/dashboard')->with('success', 'Welcome back!');
+            return view('admin.dashboard');
         } else {
             return back()->with('error', $loginResult['message']);
         }

@@ -29,7 +29,6 @@ Route::get('/forgot-password', function () {
 })->name('password.request');
 
 
-Route::middleware('auth')->group(function (){
-//    Route::get('/dashboard',[DashboardController::class,'dashboard']);
-    Route::get('/dashboard',[DashboardController::class,'index']);
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
