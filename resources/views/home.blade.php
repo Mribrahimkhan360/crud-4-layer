@@ -45,9 +45,9 @@
                     <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">{{ Str::limit($product->name , 15) }}</h5>
-                        <p class="text-muted mb-1">Category: {{ $product->name }}</p>
-                        <h6 class="text-danger">$120</h6>
-                        <p class="card-text">This is a simple product description. You can describe product features here.</p>
+                        <p class="text-muted mb-1">Category: {{ Str::limit($product->name,8) }}</p>
+                        <h6 class="text-danger">$ {{ $product->price }}</h6>
+                        <p class="card-text">{{ Str::limit($product->description , 16) }}</p>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
                             <input type="number" class="form-control" value="1" min="1">
