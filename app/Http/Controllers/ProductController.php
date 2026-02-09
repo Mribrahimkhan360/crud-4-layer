@@ -37,7 +37,8 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        return view('products.edit', compact('product'));
+        $product = $this->productService->getProductById($id);
+        return view('admin.add-product.edit', compact('product'));
     }
 
     public function update(Request $request, $id)
