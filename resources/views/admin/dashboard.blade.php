@@ -89,8 +89,12 @@
                         <td><span class="badge bg-success">{{$product->featured}}</span></td>
                         <td><span class="">{{$product->status}}</span></td>
                         <td>
-                            <button class="btn btn-sm btn-primary">Edit</button>
-                            <button class="btn btn-sm btn-danger">Delete</button>
+                            <button class="btn btn-sm btn-primary">Edit</button>'
+                            <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
