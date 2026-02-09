@@ -2,21 +2,23 @@
 
 namespace App\Services;
 
+use App\Repositories\Contracts\ProductRepositoryInterface;
 use App\Repositories\HomeRepository;
 
 class HomeService
 {
     protected $homeRepo;
+    protected $productRepository;
 
-    public function __construct(HomeRepository $homeRepo)
+    public function __construct(ProductRepositoryInterface $productRepository)
     {
-        $this->homeRepo = $homeRepo;
+        $this->productRepository = $productRepository;
     }
 
     public function getPageData()
     {
         // Static page, but structure kept for 4-layer architecture
-        return $this->homeRepo->getIndexData();
+        return $this->getPageData()->all();
     }
 
 

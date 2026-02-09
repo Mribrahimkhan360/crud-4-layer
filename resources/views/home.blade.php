@@ -38,82 +38,26 @@
 
 <div class="container mt-5">
     <div class="row g-4">
-        <!-- Product Card 1 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
-                <div class="card-body">
-                    <h5 class="card-title">Product 1</h5>
-                    <p class="text-muted mb-1">Category: Electronics</p>
-                    <h6 class="text-danger">$120</h6>
-                    <p class="card-text">This is a simple product description. You can describe product features here.</p>
-                    <div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-control" value="1" min="1">
+        @foreach($products as $product)
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="text-muted mb-1">Category: Electronics</p>
+                        <h6 class="text-danger">$120</h6>
+                        <p class="card-text">This is a simple product description. You can describe product features here.</p>
+                        <div class="mb-3">
+                            <label class="form-label">Quantity</label>
+                            <input type="number" class="form-control" value="1" min="1">
+                        </div>
+                        <button class="btn btn-primary me-2">Add to Cart</button>
+                        <button class="btn btn-outline-secondary">Buy Now</button>
                     </div>
-                    <button class="btn btn-primary me-2">Add to Cart</button>
-                    <button class="btn btn-outline-secondary">Buy Now</button>
                 </div>
             </div>
-        </div>
-
-        <!-- Product Card 2 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
-                <div class="card-body">
-                    <h5 class="card-title">Product 2</h5>
-                    <p class="text-muted mb-1">Category: Electronics</p>
-                    <h6 class="text-danger">$150</h6>
-                    <p class="card-text">This is a simple product description. You can describe product features here.</p>
-                    <div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-control" value="1" min="1">
-                    </div>
-                    <button class="btn btn-primary me-2">Add to Cart</button>
-                    <button class="btn btn-outline-secondary">Buy Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product Card 3 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
-                <div class="card-body">
-                    <h5 class="card-title">Product 3</h5>
-                    <p class="text-muted mb-1">Category: Electronics</p>
-                    <h6 class="text-danger">$90</h6>
-                    <p class="card-text">This is a simple product description. You can describe product features here.</p>
-                    <div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-control" value="1" min="1">
-                    </div>
-                    <button class="btn btn-primary me-2">Add to Cart</button>
-                    <button class="btn btn-outline-secondary">Buy Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product Card 4 -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
-                <div class="card-body">
-                    <h5 class="card-title">Product 4</h5>
-                    <p class="text-muted mb-1">Category: Electronics</p>
-                    <h6 class="text-danger">$200</h6>
-                    <p class="card-text">This is a simple product description. You can describe product features here.</p>
-                    <div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-control" value="1" min="1">
-                    </div>
-                    <button class="btn btn-primary me-2">Add to Cart</button>
-                    <button class="btn btn-outline-secondary">Buy Now</button>
-                </div>
-            </div>
-        </div>
-
+        @endforeach
     </div>
 </div>
 </body>
