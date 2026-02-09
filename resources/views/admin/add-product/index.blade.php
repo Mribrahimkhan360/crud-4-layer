@@ -47,19 +47,27 @@
         </nav>
         <div class="container my-5">
             <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-primary text-white flex">
                     <h4 class="mb-0">Add New Product</h4>
+                    <p>
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+                    </p>
                 </div>
 
                 <div class="card-body">
-                    <form action="#" method="POST" enctype="multipart/form-data">
-
+                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
 
                             <!-- Product Name -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Product Name</label>
-                                <input type="text" class="form-control" placeholder="Enter product name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Enter product name" required>
                             </div>
 
                             <!-- SKU -->
@@ -71,29 +79,29 @@
                             <!-- Category -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Category</label>
-                                <select class="form-select" required>
+                                <select name="category" class="form-select" required>
                                     <option selected disabled>Select Category</option>
-                                    <option>Electronics</option>
-                                    <option>Fashion</option>
-                                    <option>Home & Living</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Fashion">Home & Living</option>
+                                    <option value="Home & Living">Home & Living</option>
                                 </select>
                             </div>
 
                             <!-- Brand -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Brand</label>
-                                <select class="form-select">
+                                <select name="brand" class="form-select">
                                     <option selected disabled>Select Brand</option>
-                                    <option>Apple</option>
-                                    <option>Samsung</option>
-                                    <option>Nike</option>
+                                    <option value="Apple"></option>
+                                    <option value="Samsung"></option>
+                                    <option value="Nike"></option>
                                 </select>
                             </div>
 
                             <!-- Price -->
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Price ($)</label>
-                                <input type="number" class="form-control" placeholder="0.00" required>
+                                <input type="number" name="price" class="form-control" placeholder="0.00" required>
                             </div>
 
                             <!-- Discount Price -->
@@ -105,19 +113,19 @@
                             <!-- Stock -->
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Stock Quantity</label>
-                                <input type="number" class="form-control" placeholder="Enter quantity" required>
+                                <input type="number" name="stock" class="form-control" placeholder="Enter quantity" required>
                             </div>
 
                             <!-- Product Image -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Product Image</label>
-                                <input type="file" class="form-control">
+                                <input type="file" name="image" class="form-control">
                             </div>
 
                             <!-- Status -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Status</label>
-                                <select class="form-select">
+                                <select name="status" class="form-select">
                                     <option value="1">Active</option>
                                     <option value="0">Inactive</option>
                                 </select>
@@ -126,7 +134,7 @@
                             <!-- Featured -->
                             <div class="col-12 mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured">
+                                    <input class="form-check-input" name="featured" type="checkbox" id="featured">
                                     <label class="form-check-label" for="featured">
                                         Mark as Featured Product
                                     </label>
@@ -136,13 +144,13 @@
                             <!-- Short Description -->
                             <div class="col-12 mb-3">
                                 <label class="form-label">Short Description</label>
-                                <textarea class="form-control" rows="2" placeholder="Write short description..."></textarea>
+                                <textarea class="form-control" name="short_description" rows="2" placeholder="Write short description..."></textarea>
                             </div>
 
                             <!-- Full Description -->
                             <div class="col-12 mb-3">
                                 <label class="form-label">Full Description</label>
-                                <textarea class="form-control" rows="5" placeholder="Write full product details..."></textarea>
+                                <textarea class="form-control" name="description" rows="5" placeholder="Write full product details..."></textarea>
                             </div>
 
                         </div>
