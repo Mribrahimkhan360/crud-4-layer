@@ -3,19 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    //
-    public function __construct()
-    {
+    protected $productService;
 
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
     }
 
     public function index()
     {
-        return view('admin.dashboard');
+        $products = $this->productService->getAllProducts();
+        return view('admin.dashboard', compact('products'));
     }
 //    public function addProduct()
 //    {
