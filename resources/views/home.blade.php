@@ -44,7 +44,7 @@
                 <div class="card h-100 shadow-sm">
                     <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
-                        <h5 class="card-title">Product 1</h5>
+                        <h5 class="card-title">{{ Str::limit($product->name , 15) }}</h5>
                         <p class="text-muted mb-1">Category: Electronics</p>
                         <h6 class="text-danger">$120</h6>
                         <p class="card-text">This is a simple product description. You can describe product features here.</p>
