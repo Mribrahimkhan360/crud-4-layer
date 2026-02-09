@@ -35,6 +35,11 @@ class ProductController extends Controller
         return redirect()->back()->with('success','Product Added Successfully!');
     }
 
+    public function edit($id)
+    {
+        return view('products.edit', compact('product'));
+    }
+
     public function update(Request $request, $id)
     {
         $this->productService->updateProduct($id,$request->all());

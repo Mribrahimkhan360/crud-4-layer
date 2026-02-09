@@ -89,7 +89,7 @@
                         <td><span class="badge bg-success">{{$product->featured}}</span></td>
                         <td><span class="">{{$product->status}}</span></td>
                         <td>
-                            <button class="btn btn-sm btn-primary">Edit</button>'
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-primary">Edit</a>
                             <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
