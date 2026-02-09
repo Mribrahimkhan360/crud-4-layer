@@ -47,17 +47,26 @@
         </nav>
         <div class="container my-5">
             <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white flex">
-                    <h4 class="mb-0">Add New Product</h4>
-                   <p>
-                    @if(session('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
-                    @endif
-                    @if(session('error'))
-                        <div class="alert alert-danger">{{ session('error') }}</div>
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-gradient text-white d-flex justify-content-between align-items-center px-4 py-3">
+                        <h4 class="mb-0 fw-semibold text-primary">Add New Product</h4>
+                    </div>
+
+                    <div class="px-4 pt-3">
+                        @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
                         @endif
 
-                        </p>
+                        @if(session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+                                {{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        @endif
+                    </div>
                 </div>
 
                 <div class="card-body">

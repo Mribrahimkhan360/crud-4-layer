@@ -1,3 +1,6 @@
+<img src="public/Screenshot_4.png" />
+<img src="public/Screenshot_5.png" />
+
 ## Migration process a single file
 
 php artisan migrate --path=database/migrations/2026_02_09_055924_create_products_table.php
