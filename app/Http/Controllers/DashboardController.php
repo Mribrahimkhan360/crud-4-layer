@@ -17,4 +17,8 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard');
     }
+    public function addProduct()
+    {
+        return view('admin.add-product.index');
+    }
 }
