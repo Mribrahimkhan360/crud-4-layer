@@ -18,8 +18,8 @@
         <ul class="nav nav-pills flex-column mb-auto">
 
             <li class="nav-item">
-                <a href="/" class="nav-link text-white">
-                    <i class="bi bi-house-door me-3"></i> Home
+                <a href="/dashboard" class="nav-link text-white">
+                    <i class="bi bi-house-door me-3"></i> Dashboard
                 </a>
             </li>
 

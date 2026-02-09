@@ -116,13 +116,14 @@
                             <!-- Stock -->
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Stock Quantity</label>
-                                <input type="number" name="stock" class="form-control" placeholder="Enter quantity" required>
+                                <input type="number" name="stock" class="form-control" value="{{ old('stock', $product->stock) }}" placeholder="Enter quantity" required>
                             </div>
 
                             <!-- Product Image -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Product Image</label>
                                 <input type="file" name="image" class="form-control">
+                                <img src="{{ old('image', $product->image) }}" style="width: 150px" alt="">
                             </div>
 
                             <!-- Status -->

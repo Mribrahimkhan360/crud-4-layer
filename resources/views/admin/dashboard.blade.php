@@ -85,7 +85,7 @@
                         <td>{{ $product->discount_price }}</td>
                         <td>{{ $product->stock }}</td>
                         <td><img src="{{ $product->image }}" alt=""></td>
-                        <td>{{ $product->description }}</td>
+                        <td> {{ Str::limit($product->description, 20) }}</td>
                         <td><span class="badge bg-success">{{$product->featured}}</span></td>
                         <td><span class="">{{$product->status}}</span></td>
                         <td>

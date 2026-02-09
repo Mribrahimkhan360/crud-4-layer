@@ -24,6 +24,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['featured'] = $request->has('featured') ? 1 : 0;
 
         if ($request->hasFile('image'))
         {
