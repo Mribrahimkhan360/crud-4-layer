@@ -17,11 +17,15 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $products = $this->productService->getAllProducts();
-        return view('admin.dashboard', compact('products'));
+        return view('admin.dashboard');
     }
-//    public function addProduct()
-//    {
-//        return view('admin.add-product.index');
-//    }
+    public function product()
+    {
+        $products =$this->productService->getAllProducts();
+        return view('admin.product',compact('products'));
+    }
+    public function create()
+    {
+        return view('admin.product.create');
+    }
 }

@@ -25,7 +25,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('auth.registe
 Route::post('/register', [AuthController::class, 'authRegister'])->name('auth.register');
 //Route::get('/products/add',[DashboardController::class,'addProduct'])->name('products.create');
 
-Route::resource('products', ProductController::class);
+
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
@@ -33,5 +33,8 @@ Route::get('/forgot-password', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/product', [DashboardController::class, 'product'])->name('product');
+    Route::get('/product/create', [DashboardController::class, 'create'])->name('product.create');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('products', ProductController::class);
 });

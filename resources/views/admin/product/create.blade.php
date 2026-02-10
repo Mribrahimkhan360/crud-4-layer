@@ -16,7 +16,7 @@
         <h4 class="text-center mb-4">Dashboard</h4>
 
         <ul class="nav nav-pills flex-column mb-auto">
-
+            
             <li class="nav-item">
                 <a href="/dashboard" class="nav-link text-white">
                     <i class="bi bi-house-door me-3"></i> Dashboard
@@ -24,8 +24,8 @@
             </li>
 
             <li>
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-person me-3"></i> Add Product
+                <a href="{{url('products')}}" class="nav-link text-white">
+                    <i class="bi bi-person me-3"></i> Product
                 </a>
             </li>
 
@@ -41,7 +41,7 @@
     <div class="flex-grow-1" id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
-                <a href="/" class="btn btn-primary" target="_blank" id="menu-toggle">Website</a>
+                <a href=""></a>
                 <h5 class="ms-3 mb-0">Welcome to Dashboard</h5>
             </div>
         </nav>
