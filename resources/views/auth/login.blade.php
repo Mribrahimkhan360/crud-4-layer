@@ -9,12 +9,6 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
     <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Welcome Back</h1>
-    <!-- Success Message -->
-    @if(session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-            {{ session('success') }}
-        </div>
-    @endif
 
 <!-- Error Message -->
     @if(session('error'))

@@ -16,7 +16,7 @@
         <h4 class="text-center mb-4">Dashboard</h4>
 
         <ul class="nav nav-pills flex-column mb-auto">
-            
+
             <li class="nav-item">
                 <a href="/dashboard" class="nav-link text-white">
                     <i class="bi bi-house-door me-3"></i> Dashboard
@@ -30,9 +30,13 @@
             </li>
 
             <li>
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-gear me-3"></i> Logout
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link text-white border-0 bg-transparent">
+                        <i class="bi bi-gear me-0"></i> Logout
+                    </button>
+                </form>
+
             </li>
 
         </ul>

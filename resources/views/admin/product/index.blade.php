@@ -33,9 +33,13 @@
             </li>
 
             <li>
-                <a href="#" class="nav-link text-white">
-                    Logout
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link text-white border-0 bg-transparent">
+                        <i class="bi bi-gear me-0"></i> Logout
+                    </button>
+                </form>
+
             </li>
 
         </ul>

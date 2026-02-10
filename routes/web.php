@@ -23,7 +23,7 @@ Route::get('/login',[AuthController::class,'login'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'authLogin']);
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/register', [AuthController::class, 'authRegister'])->name('auth.register');
-//Route::get('/products/add',[DashboardController::class,'addProduct'])->name('products.create');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 

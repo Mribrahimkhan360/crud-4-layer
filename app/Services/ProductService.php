@@ -20,6 +20,11 @@ class ProductService
         return $this->productRepository->all();
     }
 
+//    public function getProduct($id)
+//    {
+//        return $this->productRepository->find($id);
+//    }
+
     public function getProductById($id)
     {
         return $this->productRepository->find($id);

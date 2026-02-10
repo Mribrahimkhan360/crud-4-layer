@@ -2,63 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Product Grid</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .login-fixed {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #0d6efd;
-            color: #fff;
-            padding: 12px 15px;
-            border-radius: 10px 0px 0px 10px;
-            text-decoration: none;
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .login-fixed:hover {
-            background: #084298;
-            padding-left: 20px;
-            color: #fff;
-        }
-
-        .login-fixed i {
-            font-size: 20px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+    <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Welcome Back</h1>
+    <!-- Success Message -->
+    @if(session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
 
-<a href="{{ route('auth.login') }}" class="login-fixed">
-    Login
-</a>
-
-<div class="container mt-5">
-    <div class="row g-4">
-        @foreach($products as $product)
-
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm">
-                    <img src="{{ asset('card.png') }}" class="card-img-top" alt="Product Image">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ Str::limit($product->name , 15) }}</h5>
-                        <p class="text-muted mb-1">Category: {{ Str::limit($product->name,8) }}</p>
-                        <h6 class="text-danger">$ {{ $product->price }}</h6>
-                        <p class="card-text">{{ Str::limit($product->description , 16) }}</p>
-                        <div class="mb-3">
-                            <label class="form-label">Quantity</label>
-                            <input type="number" class="form-control" value="1" min="1">
-                        </div>
-                        <button class="btn btn-primary me-2">Add to Cart</button>
-                        <button class="btn btn-outline-secondary">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
+<!-- Error Message -->
+    @if(session('error'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {{ session('error') }}
+        </div>
+    @endif
+    <form action="{{ route('auth.login') }}" method="POST" class="space-y-4">
+        @csrf
+        <div>
+            <label class="block text-gray-700 mb-1">Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required
+                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-1">Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required
+                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="flex items-center justify-between">
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" name="remember" class="w-4 h-4">
+                <span class="text-gray-600 text-sm">Remember me</span>
+            </label>
+            <a href="{{ route('password.request') }}" class="text-blue-500 text-sm hover:underline">Forgot Password?</a>
+        </div>
+        <button type="submit"
+                class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+            Login
+        </button>
+    </form>
+    <p class="text-center text-gray-600 text-sm mt-4">
+        Don’t have an account?
+        <a href="{{ route('auth.register') }}" class="text-blue-500 hover:underline">Register</a>
+    </p>
 </div>
 </body>
 </html>

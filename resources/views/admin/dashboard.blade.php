@@ -28,14 +28,17 @@
 
             <li>
                 <a href="{{url('products')}}" class="nav-link text-white">
-                    Add Product
+                    Product
                 </a>
             </li>
 
             <li>
-                <a href="#" class="nav-link text-white">
-                    Logout
-                </a>
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button type="submit" class="nav-link text-white border-0 bg-transparent">
+                        <i class="bi bi-gear me-0"></i> Logout
+                    </button>
+                </form>
             </li>
 
         </ul>
