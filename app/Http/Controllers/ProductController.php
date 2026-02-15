@@ -46,7 +46,27 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $id)
     {
-        $this->productService->updateProduct($id,$request->all());
+//        $this->productService->updateProduct($id,$request->all());
+//        return redirect()->back()->with('success','Product updated successfully.');
+        $data = $request->validated(); // safer than all()
+
+        // featured checkbox handle
+        $data['featured'] = $request->has('featured') ? 1 : 0;
+
+        // image check
+        if ($request->hasFile('image')) {
+            // old image delete korle bhalo
+            $product = $this->productService->getProductById($id);
+            if ($product->image && \Storage::disk('public')->exists($product->image)) {
+                \Storage::disk('public')->delete($product->image);
+            }
+
+            // new image upload
+            $data['image'] = $request->file('image')->store('products','public');
+        }
+
+        $this->productService->updateProduct($id,$data);
+
         return redirect()->back()->with('success','Product updated successfully.');
     }
 
