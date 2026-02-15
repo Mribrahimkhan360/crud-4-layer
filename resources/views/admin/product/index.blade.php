@@ -28,7 +28,7 @@
 
             <li>
                 <a href="{{url('products')}}" class="nav-link text-white">
-                    Product
+                    Add Product
                 </a>
             </li>
 

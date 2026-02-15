@@ -25,7 +25,7 @@
 
             <li>
                 <a href="{{url('products')}}" class="nav-link text-white">
-                    <i class="bi bi-person me-3"></i> Product
+                    <i class="bi bi-person me-3"></i>Add Product
                 </a>
             </li>
 
@@ -55,12 +55,21 @@
                     <h4 class="mb-0">Add New Product</h4>
                     <p>
                     @if(session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <div class="alert alert-success alert-dismissible fade show text-green-800" role="alert">
                             {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         @endif
                     </p>
+                        <p>
+                            @if($errors->any())
+                                @foreach($errors->all() as $error)
+                                    <p class="alert alert-success alert-dismissible fade show ">
+                                        {{ $error }}
+                                    </p>
+                                @endforeach
+                            @endif
+                        </p>
                 </div>
 
                 <div class="card-body">
@@ -71,13 +80,13 @@
                             <!-- Product Name -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Product Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter product name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Enter product name"/>
                             </div>
 
                             <!-- SKU -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">SKU</label>
-                                <input type="text" class="form-control" placeholder="Enter SKU code">
+                                <input type="text" class="form-control" name="sku" placeholder="Enter SKU code">
                             </div>
 
                             <!-- Category -->
@@ -96,9 +105,9 @@
                                 <label class="form-label">Brand</label>
                                 <select name="brand" class="form-select">
                                     <option selected disabled>Select Brand</option>
-                                    <option value="Apple"></option>
-                                    <option value="Samsung"></option>
-                                    <option value="Nike"></option>
+                                    <option value="Apple">Apple</option>
+                                    <option value="Samsung">Samsung</option>
+                                    <option value="Nike">Nike</option>
                                 </select>
                             </div>
 
@@ -138,8 +147,8 @@
                             <!-- Featured -->
                             <div class="col-12 mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" name="featured" type="checkbox" id="featured">
-                                    <label class="form-check-label" for="featured">
+                                    <input type="hidden" name="featured" value="0">
+                                    <input class="form-check-input" name="featured" type="checkbox" id="featured" value="1">                                    <label class="form-check-label" for="featured">
                                         Mark as Featured Product
                                     </label>
                                 </div>

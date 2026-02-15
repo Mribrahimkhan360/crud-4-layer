@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class ProductController extends Controller
         return view('admin.product.index',compact('products'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $data = $request->all();
         $data['featured'] = $request->has('featured') ? 1 : 0;
@@ -43,10 +44,10 @@ class ProductController extends Controller
         return view('admin.product.edit', compact('product'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         $this->productService->updateProduct($id,$request->all());
-        return redirect()->back()->with('success','Product Updated');
+        return redirect()->back()->with('success','Product updated successfully.');
     }
 
     public function destroy($id)
