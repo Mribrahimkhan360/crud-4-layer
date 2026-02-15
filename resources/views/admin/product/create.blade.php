@@ -148,7 +148,16 @@
                             <div class="col-12 mb-3">
                                 <div class="form-check">
                                     <input type="hidden" name="featured" value="0">
-                                    <input class="form-check-input" name="featured" type="checkbox" id="featured" value="1">                                    <label class="form-check-label" for="featured">
+                                    <input
+                                        class="form-check-input"
+                                        name="featured"
+                                        type="checkbox"
+                                        id="featured"
+                                        value="1"
+                                        {{ old('featured', $product->featured ?? 0) ? 'checked' : '' }}
+                                    >
+
+                                    <label class="form-check-label" for="featured">
                                         Mark as Featured Product
                                     </label>
                                 </div>

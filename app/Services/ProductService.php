@@ -17,7 +17,8 @@ class ProductService
 
     public function getAllProducts()
     {
-        return $this->productRepository->all();
+//        return $this->productRepository->all();
+        return $this->productRepository->paginateProducts(5);
     }
 
 //    public function getProduct($id)

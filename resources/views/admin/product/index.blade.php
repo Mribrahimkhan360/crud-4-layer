@@ -111,6 +111,9 @@
                     @endforeach
                     </tbody>
                 </table>
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $products->links() }}
+                    </div>
                 @else
                     <p>No products found.</p>
                 @endif
