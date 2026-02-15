@@ -28,7 +28,7 @@ class LoginRequest extends FormRequest
         return [
             'email.required'    => 'Email is required',
             'email.email'       => 'Enter a valid email address',
-            'email.exist'       => 'This email is not registered',
+            'email.exists'       => 'This email is not registered',
             'password.required' => 'Password is required',
             'password.min'      => 'Password must be at least 6 characters',
         ];

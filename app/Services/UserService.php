@@ -26,6 +26,7 @@ class UserService
     public function loginUser(string $email, string $password, bool $remember = false)
     {
         $user = $this->userRepo->findByEmail($email);
+
         if ($user && Hash::check($password, $user->password)) {
             Auth::login($user, $remember); // This actually logs in the user
             return ['status' => true, 'message' => 'Login successful'];
@@ -33,7 +34,5 @@ class UserService
 
         return ['status' => false, 'message' => 'Invalid credentials'];
     }
-
-
 
 }

@@ -33,7 +33,7 @@
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="nav-link text-white border-0 bg-transparent">
-                        <i class="bi bi-gear me-0"></i> Logout
+                        <i class="bi bi-gear me-3"></i> Logout
                     </button>
                 </form>
 
@@ -46,7 +46,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
                 <a href=""></a>
-                <h5 class="ms-3 mb-0">Welcome to Dashboard</h5>
+                <h5 class="ms-3 mb-0">Create Product</h5>
             </div>
         </nav>
         <div class="container my-5">

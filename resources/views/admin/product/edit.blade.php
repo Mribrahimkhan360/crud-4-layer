@@ -30,9 +30,12 @@
             </li>
 
             <li>
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-gear me-3"></i> Logout
-                </a>
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button type="submit" class="nav-link text-white border-0 bg-transparent">
+                        <i class="bi bi-gear me-3"></i> Logout
+                    </button>
+                </form>
             </li>
 
         </ul>

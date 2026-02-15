@@ -50,7 +50,7 @@
         <nav class="navbar navbar-light bg-light border-bottom">
             <div class="container-fluid">
                 <p></p>
-                <h5 class="ms-3 mb-0">User</h5>
+                <h5 class="ms-3 mb-0">Product List</h5>
             </div>
         </nav>
 

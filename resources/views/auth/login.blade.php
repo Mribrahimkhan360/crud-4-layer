@@ -10,12 +10,17 @@
 <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
     <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Welcome Back</h1>
 
-<!-- Error Message -->
-    @if(session('error'))
+    <!-- Error Message -->
+    @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-            {{ session('error') }}
+            <ul class="list-disc pl-5">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
+
     <form action="{{ route('auth.login') }}" method="POST" class="space-y-4">
         @csrf
         <div>
@@ -28,13 +33,13 @@
             <input type="password" name="password" placeholder="Enter your password" required
                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
-        <div class="flex items-center justify-between">
-            <label class="flex items-center space-x-2">
-                <input type="checkbox" name="remember" class="w-4 h-4">
-                <span class="text-gray-600 text-sm">Remember me</span>
-            </label>
-            <a href="{{ route('password.request') }}" class="text-blue-500 text-sm hover:underline">Forgot Password?</a>
-        </div>
+{{--        <div class="flex items-center justify-between">--}}
+{{--            <label class="flex items-center space-x-2">--}}
+{{--                <input type="checkbox" name="remember" class="w-4 h-4">--}}
+{{--                <span class="text-gray-600 text-sm">Remember me</span>--}}
+{{--            </label>--}}
+{{--            <a href="{{ route('password.request') }}" class="text-blue-500 text-sm hover:underline">Forgot Password?</a>--}}
+{{--        </div>--}}
         <button type="submit"
                 class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
             Login
