@@ -83,7 +83,7 @@
                     <tbody>
                     @foreach($products as $product)
                     <tr>
-                        <td>1</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->sku }}</td>
                         <td>{{ $product->category }}</td>
@@ -91,7 +91,11 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->discount_price }}</td>
                         <td>{{ $product->stock }}</td>
-                        <td><img src="{{ $product->image }}" alt=""></td>
+                        <td>
+                            @if($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" style="width: 50px; margin-top: 10px;" alt="Product Image">
+                            @endif
+                        </td>
                         <td> {{ Str::limit($product->description, 20) }}</td>
                         <td><span class="badge bg-success">{{$product->featured}}</span></td>
                         <td><span class="">{{$product->status}}</span></td>
