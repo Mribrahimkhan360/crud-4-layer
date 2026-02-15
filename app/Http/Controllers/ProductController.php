@@ -30,7 +30,10 @@ class ProductController extends Controller
 
         if ($request->hasFile('image'))
         {
-            $data['image'] = $request->file('image')->store('products','public');
+            $filename = $request->file('image')->getClientOriginalName();
+
+            $request->file('image')->storeAs('products',$filename,'public');
+            $data['image'] = $filename;
         }
 
         $this->productService->createProduct($data);

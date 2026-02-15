@@ -93,7 +93,7 @@
                         <td>{{ $product->stock }}</td>
                         <td>
                             @if($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" style="width: 50px; margin-top: 10px;" alt="Product Image">
+                                <img src="{{ asset('storage/products/' . $product->image) }}" style="width: 50px; margin-top: 10px;" alt="Product Image">
                             @endif
                         </td>
                         <td> {{ Str::limit($product->description, 20) }}</td>
